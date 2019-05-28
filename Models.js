@@ -9,7 +9,7 @@ System.Models.Base = function() {
         uuid: System.Helpers.Common.generateUUID()
     };
 
-    // Model sonrtcutor
+    // Model constructor
     this._construct = function(ModelDefaults, ModelOptions, Callback = null) {
         _.extend(BaseDefaults, ModelDefaults);
 
@@ -26,11 +26,6 @@ System.Models.Base = function() {
         // Fire callback if it is truthy
         Callback && Callback();
     };
-  
-    // Fire Model constructor
-    //this._construct(options, constructorCallback);
-
-    //this.uuid = defaults.uuid;
 
     Object.defineProperty(this, '_construct', {
         enumerable: false
@@ -41,10 +36,6 @@ System.Models.Record = function(Options){
     System.Models.Base.call(this);
 
     var _this = this;
-
-    // this._construct = function(options){
-    //     $.extend(defaults, options);
-    // };
 
     this._construct(
         {
@@ -60,4 +51,3 @@ System.Models.Record = function(Options){
 };
 System.Models.Record.prototype = Object.create(System.Models.Base.prototype);
 System.Models.Record.prototype.constructor = System.Models.Record;
-
