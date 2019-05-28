@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Test 1</title>
+        <script src="vendor/underscore/underscore-1.9.1.js"></script>
+        <script src="System.js"></script>
+        <script src="Helpers.js"></script>
+        <script src="Models.js"></script>
+
+        <script>
+        var x = new System.Models.Record({
+            id: "hello",
+            title: 1,
+            dateCreated: 2,
+            dateModified: 3,
+            authorId: 1000
+        })
+
+        console.log(JSON.stringify(x));
+        </script>
+    </head>
+</html>

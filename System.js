@@ -1,4 +1,4 @@
-var System;
+function System() {};
 
 System.prototype.getOS = function() {
 

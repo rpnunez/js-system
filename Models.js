@@ -1,16 +1,63 @@
 System.Models = function(){};
 
-System.Models.Base = function(properties) {
-    var options = {
+System.Models.Base = function() {
+    // Reference to Base
+    var _this = this;
 
-    }
+    // Properties shared across all Models
+    var BaseDefaults = {
+        uuid: System.Helpers.Common.generateUUID()
+    };
+
+    // Model sonrtcutor
+    this._construct = function(ModelDefaults, ModelOptions, Callback = null) {
+        _.extend(BaseDefaults, ModelDefaults);
+
+        // Replace and/or add properties from our model options
+        _.extend(BaseDefaults, ModelOptions);
+
+        // Make each property in our base defaults into a property into this model
+        for (var i in BaseDefaults) { 
+            if (BaseDefaults.hasOwnProperty(i)) {
+                _this[i] = BaseDefaults[i];
+            }
+        }
+
+        // Fire callback if it is truthy
+        Callback && Callback();
+    };
+  
+    // Fire Model constructor
+    //this._construct(options, constructorCallback);
+
+    //this.uuid = defaults.uuid;
+
+    Object.defineProperty(this, '_construct', {
+        enumerable: false
+    });
 };
 
- Person.prototype.getName = function() {
-     return this.name;
- };
+System.Models.Record = function(Options){
+    System.Models.Base.call(this);
 
- Person.prototype.setName = function(name = '') {
-     this.name = name || '';
- }
+    var _this = this;
+
+    // this._construct = function(options){
+    //     $.extend(defaults, options);
+    // };
+
+    this._construct(
+        {
+            Id: null,
+            Name: null,
+            Body: ""
+        },
+        Options,
+        function() {
+            _this._____xyz = null;
+        }
+    );
+};
+System.Models.Record.prototype = Object.create(System.Models.Base.prototype);
+System.Models.Record.prototype.constructor = System.Models.Record;
 
