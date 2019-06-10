@@ -8,14 +8,27 @@
 
         <script>
         var x = new System.Models.Record({
-            id: "hello",
-            title: 1,
-            dateCreated: 2,
+            ID: "23",
+            Name: "Some post!",
+            Body: "Hello, world!",
             dateModified: 3,
             authorId: 1000
+        }, function(model) {
+            var clone = _.clone(model);
+            console.log('new System.Models.Record Object, Callback received arguments: ', {
+                model,
+                clone
+            })
+            console.log('-callback fired');
+            model.someFunction = function() {
+                alert('hey');
+            }
         })
 
+        x.someFunction();
+
         console.log(JSON.stringify(x));
+        console.log(x.getName());
         </script>
     </head>
 </html>
