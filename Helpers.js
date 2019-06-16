@@ -1,8 +1,4 @@
-System.Helpers = function(){}
-
-System.Helpers.Common = function(){}
-
-System.Helpers.Common.generateUUID = function() {
+System.Helpers.Common.prototype.generateUUID = function() {
     // Math.random should be unique because of its seeding algorithm.
     // Convert it to base 36 (numbers + letters), and grab the first 9 characters
     // after the decimal.

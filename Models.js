@@ -1,5 +1,3 @@
-System.Models = function(){};
-
 /**
  * Base Model
  * 
@@ -9,9 +7,12 @@ System.Models.Base = function(ModelDefaults, ModelOptions, Callback = null) {
     // Reference to Base
     let _this = this;
 
+    // Helpers
+    var _commonHelper = new System.Helpers.Common();
+
     // Properties shared across all Models
     let BaseDefaults = {
-        _uuid: System.Helpers.Common.generateUUID(),
+        _uuid: _commonHelper.generateUUID(),
         _callback: Callback != null ? Callback : null
     };
 

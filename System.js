@@ -1,5 +1,14 @@
-function System() {};
+// System = (function() {
+//     this.Helpers = (function(){});
 
-System.prototype.getOS = function() {
+//     this.Models = {
 
-};
+//     };
+// })();
+
+var System = {};
+
+System.Helpers = function() {};
+System.Helpers.Common = function() {};
+
+System.Models = function() {};
