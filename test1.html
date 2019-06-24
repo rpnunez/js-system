@@ -7,6 +7,8 @@
         <script src="Models.js"></script>
 
         <script>
+        let Logger = new System.Helpers.Logger();
+
         var x = new System.Models.Record({
             ID: "23",
             Name: "Some post!",
@@ -15,17 +17,19 @@
             authorId: 1000
         }, function(model) {
             var clone = _.clone(model);
-            console.log('new System.Models.Record Object, Callback received arguments: ', {
+
+            Logger.log('new System.Models.Record Object, Callback received arguments: ', {
                 model,
                 clone
             })
-            console.log('-callback fired');
+            Logger.log('-callback fired');
+
             model.someFunction = function() {
                 alert('hey');
             }
         })
 
-        x.someFunction();
+        //x.someFunction();
 
         console.log(JSON.stringify(x));
         console.log(x.getName());
